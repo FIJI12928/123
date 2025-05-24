@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ใส่รหัสผ่านเพื่อดูคำใบ้</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+      text-align: center;
+    }
+    #clue {
+      display: none;
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>กรอกรหัสผ่านเพื่อดูคำใบ้</h1>
+  <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
+  <button onclick="checkPassword()">ตกลง</button>
+  <div id="error"></div>
+  <div id="clue">คำใบ้คือ: พี่รหัสของคุณชื่อ <strong>ชีส</strong></div>
+
+  <script>
+    const correctPassword = "cheese"; // รหัสผ่านตั้งไว้ที่นี่
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const clue = document.getElementById("clue");
+      const error = document.getElementById("error");
+
+      if (input.toLowerCase() === correctPassword) {
+        clue.style.display = "block";
+        error.textContent = "";
+      } else {
+        clue.style.display = "none";
+        error.textContent = "รหัสผ่านไม่ถูกต้อง ลองใหม่อีกครั้ง";
+      }
+    }
+  </script>
+</body>
+</html>
